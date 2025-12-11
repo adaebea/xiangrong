@@ -9,11 +9,12 @@ body {
 }
 
 .bg-video {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 780px;
+  max-height: 100vh;
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
@@ -22,6 +23,10 @@ body {
 .container {
   position: relative;
   z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .input-container {
@@ -126,4 +131,16 @@ body {
 .badge-icon {
   width: 14px;
   height: 14px;
+}
+
+.info-images {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-images img {
+  width: 100%;
+  display: block;
 }
