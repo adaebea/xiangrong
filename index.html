@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Perk Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <video
+      class="bg-video"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="none"
+      poster="./images/title.png"
+    >
+      <source data-src="./images/video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="container">
+      <img src="./images/title.png" alt="title" width="100%" />
+      <div class="input-container">
+        <input class="input" type="text" placeholder="Enter your email" />
+        <button class="button">
+          <span class="button-badge">
+            <img
+              class="badge-icon"
+              src="./images/icon-lightning.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            3 Days Free
+          </span>
+          <span class="button-title">Start Free Trial</span>
+          <span class="button-subtitle"
+            >$29.99/month after trial · Cancel Anytime</span
+          >
+        </button>
+      </div>
+    </div>
+    <script>
+      // Delay attaching video source to avoid blocking the first paint.
+      const video = document.querySelector(".bg-video");
+      const source = video?.querySelector("source");
+      const loadVideo = () => {
+        if (!video || !source || source.src) return;
+        source.src = source.dataset.src || "";
+        video.load();
+      };
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadVideo, { timeout: 1500 });
+      } else {
+        setTimeout(loadVideo, 300);
+      }
+    </script>
+  </body>
+</html>
